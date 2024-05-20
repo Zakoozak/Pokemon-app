@@ -1,0 +1,41 @@
+<h1 class="center">Welcome to Liste de pokemon </h1>
+
+<input 
+    #input
+    (keyup.enter)="selectPokemon(input.value)"
+    type="number"
+>
+
+@if(pokemonSelected){
+<p  >
+  
+    =====> {{ pokemonSelected?.name }}
+
+</p>
+}
+
+
+<div class="container">
+    <div class="row" >
+        <div class="col m6 s6">
+        @for (pokemon of pokemonListe; track pokemon.id ) {
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img [src] ="pokemon.picture">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p > <b> Nom: </b> {{pokemon.name}}</p>
+                            <p> <b> HP:</b> {{pokemon.stats.hp}} </p>
+                            <p>  <b>Attaque: </b>{{pokemon.stats.attack}} </p>
+                            <p> <b> Défense:</b> {{pokemon.stats.defense}} </p>
+                            <p>  <b>Attaque Sépciale:</b> {{pokemon.stats.special_attack}} </p>
+                            <p> <b>Défense Sépciale: </b> {{pokemon.stats.special_defense}} </p>
+                            <p> <b>vitesse: </b> {{pokemon.stats.speed}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</div>
