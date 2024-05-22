@@ -1,0 +1,33 @@
+<p>list-pokemon works!</p>
+
+<div>
+    <div class="container">
+      <div class="row" >
+          @for (pokemon of pokemonListe; track pokemon.id)
+          {
+              <div class="col s12 m6 l4"> 
+                  <div class="card horizontal"  (click)=goPokemonDetail(pokemon)>
+                      <div class="card-image" >
+                          <img [src]="pokemon.picture">
+  
+                           @for (type of pokemon.types; track $index){
+                              <img [src]= "type | pokemonTypeColor" >
+                  }
+                      </div> 
+                      <div class="card-stacked">
+                          <div class="card-content">
+                              <h4><p>{{pokemon.name}}</p></h4>
+                              <p><b>HP:</b> {{pokemon.stats.hp}}</p>
+                              <p><b>Attaque:</b> {{pokemon.stats.attack}}</p>
+                              <p><b>Défense:</b> {{pokemon.stats.defense}}</p>
+                              <p><b>Attaque Spéciale:</b> {{pokemon.stats.special_attack}}</p>
+                              <p><b>Défense Spéciale:</b> {{pokemon.stats.special_defense}}</p>
+                              <p><b>Vitesse:</b> {{pokemon.stats.speed}}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          }
+      </div>
+  </div>
+  

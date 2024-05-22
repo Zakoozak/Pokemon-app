@@ -1,38 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { POKEMONS } from './mock-pokemon-list2';
 import { Pokemon } from './pokemon2';
-import { CommonModule } from '@angular/common';
+import { PokemonTypeColorPipe } from "./pokemon-type-color.pipe";
+import { RouterModule,Route, RouterOutlet } from '@angular/router';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: 'app.component.html'
-
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: 'app.component.html',
+    imports: [PokemonTypeColorPipe, RouterOutlet]
 })
 
 
-export class AppComponent implements OnInit {
 
-  pokemonListe : Pokemon[] = POKEMONS
-  pokemonSelected : Pokemon |undefined;
-
-  ngOnInit(){
-    console.table(this.pokemonListe);
-  }
-
-
-  selectPokemon(pokemonID : string ){
-    const id = +pokemonID
-    const pokemon : Pokemon|undefined = this.pokemonListe.find(pokemon => pokemon.id== +pokemonID)
-    if (pokemon){
-      console.log(`vous avez cliqué sur ${pokemon.name}`);      
-      this.pokemonSelected = pokemon;
-    }
-    else{
-      console.log(`vous avez demandé sue un pokemon non, exitant`);  
-      this.pokemonSelected = pokemon;
-    }
-  }
+export class AppComponent {  
 
 }
